@@ -10,7 +10,7 @@ export class HomePage extends BasePage {
         super(page);
         this.searchField = page.locator('input[aria-label="Wpisz nazwę szukanej usługi"]');
         this.searchAll = page.locator('button.ic-btn');
-        this.searchInfoMessage = page.locator('h2[ _ngcontent-tjh-c80=""]');
+        this.searchInfoMessage = page.locator('div.no-results h2');
     };
 
     async search(text: string) {
@@ -23,8 +23,5 @@ export class HomePage extends BasePage {
         await this.searchField.fill(text);
     };
 
-    async waiterForSearchInfoMessage(){
-        await this.page.waitForSelector('h2[ _ngcontent-tjh-c80=""]', { state: 'visible' });
-    }
 
 }

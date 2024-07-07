@@ -1,8 +1,8 @@
 import { Page } from "@playwright/test";
 import BasePage from "./basePage"
 
-export class RegestrationPage extends BasePage {
-    public individualRegestrationButton;
+export class RegistrationPage extends BasePage {
+    public individualRegistrationButton;
     public name;
     public surname;
     public email;
@@ -11,10 +11,11 @@ export class RegestrationPage extends BasePage {
     public agreements;
     public signUpButton;
     public successMessage;
+    public invalidPasswordMessage;
 
     constructor(page: Page) {
         super(page);
-        this.individualRegestrationButton = page.locator('a[href="/new/rejestracja/formularz"]');
+        this.individualRegistrationButton = page.locator('a[href="/new/rejestracja/formularz"]');
         this.name = page.locator('input#firstName');
         this.surname = page.locator('input#surname');
         this.email = page.locator('input#email');
@@ -23,6 +24,7 @@ export class RegestrationPage extends BasePage {
         this.agreements = page.locator('input#ALL');
         this.signUpButton = page.locator('//span[text() = "Zarejestruj się"]');
         this.successMessage = page.locator('//h2[@class = "registration-success-header"]');
+        this.invalidPasswordMessage = page.locator('//span[text() = "Hasło nie spełnia wymogów. Wprowadź inne hasło"]');
     };
 
     async fillInSignUpForm(name, surname, email, password, confirmPassword) {

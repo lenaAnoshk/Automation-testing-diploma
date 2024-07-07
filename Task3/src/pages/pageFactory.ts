@@ -1,11 +1,13 @@
 import { Page } from "@playwright/test";
 import BasePage from "./basePage";
-import {HomePage} from "./homePage";
+import { HomePage } from "./homePage";
 import { SearchPage } from "./searchPage";
 import { HeaderPage } from "./headerPage";
 import { LoginPage } from "./loginPage";
 import { ResetPasswordPage } from "./resetPasswordPage";
-import { RegestrationPage } from "./regestrationPage";
+import { RegistrationPage } from "./registrationPage";
+import { MyAccountPage } from "./myAccountPage";
+import { SlotsForExamPKKPage } from "./slotsForExamPKKPage";
 
 
 class PageFactory {
@@ -23,8 +25,12 @@ class PageFactory {
                 return new LoginPage(page);
             case "ResetPasswordPage":
                 return new ResetPasswordPage(page);
-            case "RegestrationPage":
-                return new RegestrationPage(page);
+            case "RegistrationPage":
+                return new RegistrationPage(page);
+            case "MyAccountPage":
+                return new MyAccountPage(page);
+            case "SlotsForExamPKKPage":
+                return new SlotsForExamPKKPage(page);
             default:
                 return new BasePage(page);
         }
