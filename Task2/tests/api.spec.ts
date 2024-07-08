@@ -23,11 +23,10 @@ describe('Check GET API requests', function () {
     it('should get post with invalid id', async function () {
         const id = 101;
         const response = await helpers.getRequest(
-            'https://jsonplaceholder.typicode.com/comments?postId=1'
+            `https://jsonplaceholder.typicode.com/posts/${id}`
         );
 
-        expect(response.statusCode).toBe(200);
-        expect(response.body).toEqual(testData.comments);
+        expect(response.statusCode).toBe(404);
     });
     it('GET request to invalid url', async function () {
         const error = await helpers.getRequest(
@@ -39,7 +38,7 @@ describe('Check GET API requests', function () {
     it('should get comments to post with invalid id', async function () {
         const id = 101;
         const response = await helpers.getRequest(
-            `https://jsonplaceholder.typicode.com/comments?postId={id}`
+            `https://jsonplaceholder.typicode.com/comments?postId=${id}`
         );
 
         expect(response.body).toEqual([]);
