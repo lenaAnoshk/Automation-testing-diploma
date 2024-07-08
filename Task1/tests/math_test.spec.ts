@@ -79,8 +79,8 @@ describe('Positive tests', function () {
 });
 
 describe('Negative tests', function () {
-    test('exponentiation with negative exponent', function () {
-        const result = MathOperations.power(2, -3);
+    test('exponentiation with non-numeric exponent', function () {
+        const result = MathOperations.power(2, 'a');
         expect(result).toBeNaN(); 
     });
 
