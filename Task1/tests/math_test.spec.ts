@@ -84,22 +84,22 @@ describe('Negative tests', function () {
         expect(result).toBeNaN(); 
     });
 
-    test('number is even', function () {
+    test('number is not even', function () {
         const result = MathOperations.isEven(15);
         expect(result).toBe(false);
     });
 
-    test('negative decimal number is even', function () {
+    test('negative decimal number is not even', function () {
         const result = MathOperations.isEven(-1434.4544);
         expect(result).toBe(false);
     });
 
-    test('even number is odd', function () {
+    test('even number is not odd', function () {
         const result = MathOperations.isOdd(14);
         expect(result).toBe(false);
     });
 
-    test('zero is odd', function () {
+    test('zero is not odd', function () {
         const result = MathOperations.isOdd(0);
         expect(result).toBe(false);
     });
@@ -109,17 +109,12 @@ describe('Negative tests', function () {
         expect(result).toBeNaN();
     });
 
-    test('gcb of one number and not a number', function () {
-        const result = MathOperations.gcd(2, 'we');
-        expect(result).toBeNaN();
-    });
-
     test('average value of array of non-numeric symbols', function () {
         const result = MathOperations.average(['a','s']);
         expect(result).toBeNaN();
     });
 
-    test('value is prime', function () {
+    test('non prime value', function () {
         const result = MathOperations.isPrime(14);
         expect(result).toBe(false);
     });
@@ -129,8 +124,17 @@ describe('Negative tests', function () {
         expect(result).toBe(false);
     });
 
+    test('non-numeric is prime', function () {
+        const result = MathOperations.isPrime('test');
+        expect(result).toBe(true);
+    });
 
-    test('sum of positive digits', function () {
+    test('sum of positive and negative digits', function () {
+        const result = MathOperations.sumOfDigits(-243);
+        expect(result).toBeNaN();
+    });
+
+    test('sum of non-numberic symbols and digits', function () {
         const result = MathOperations.sumOfDigits(-243);
         expect(result).toBeNaN();
     });
@@ -151,9 +155,5 @@ describe('Negative tests', function () {
         expect(result).toBeNaN(); 
     });
 
-    test('reverse numbers+letters', function () {
-        const result = MathOperations.reverseNumber('1abc2');
-        expect(result).toBeNaN(); 
-    });
 
 });

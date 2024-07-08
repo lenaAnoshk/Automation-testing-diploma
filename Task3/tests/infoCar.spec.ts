@@ -12,15 +12,15 @@ import { SlotsForExamPKKPage } from '../src/pages/slotsForExamPKKPage';
 
 
 test.describe('10 tests for https://info-car.pl', () => {
-    let basePage, 
-    homePage, 
-    searchPage, 
+    let basePage: any, 
+    homePage: any , 
+    searchPage: any, 
     headerPage, 
-    loginPage, 
-    resetPasswordPage, 
-    registrationPage, 
-    myAccountPage, 
-    slotsForExamPKKPage;
+    loginPage: any, 
+    resetPasswordPage: any, 
+    registrationPage: any, 
+    myAccountPage: any, 
+    slotsForExamPKKPage: any;
 
     test.describe('search', () => {
         test.beforeEach('Setup', async ({ page }) => {
