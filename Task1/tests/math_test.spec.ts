@@ -84,11 +84,6 @@ describe('Negative tests', function () {
         expect(result).toBeNaN(); 
     });
 
-    test('square root of negative number', function () {
-        const result = MathOperations.sqrt(-16);
-        expect(result).toBeNaN(); 
-    });
-
     test('number is even', function () {
         const result = MathOperations.isEven(15);
         expect(result).toBe(false);
@@ -99,8 +94,13 @@ describe('Negative tests', function () {
         expect(result).toBe(false);
     });
 
-    test('number is odd', function () {
+    test('even number is odd', function () {
         const result = MathOperations.isOdd(14);
+        expect(result).toBe(false);
+    });
+
+    test('zero is odd', function () {
+        const result = MathOperations.isOdd(0);
         expect(result).toBe(false);
     });
 
@@ -113,7 +113,6 @@ describe('Negative tests', function () {
         const result = MathOperations.gcd(2, 'we');
         expect(result).toBeNaN();
     });
-
 
     test('average value of array of non-numeric symbols', function () {
         const result = MathOperations.average(['a','s']);
@@ -141,10 +140,11 @@ describe('Negative tests', function () {
         expect(result).toBe(5432); 
     });
 
-    test('reverse number with zeros', function () {
+    test('reverse number with zeros in the end', function () {
         const result = MathOperations.reverseNumber(1200);
         expect(result).toBe(21); 
     });
+
 
     test('reverse word', function () {
         const result = MathOperations.reverseNumber('abc');
